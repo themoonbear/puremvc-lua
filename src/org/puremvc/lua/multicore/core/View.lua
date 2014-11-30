@@ -74,9 +74,10 @@ function View.getInstance(key)
 		return nil
 	end
 	if View.instanceMap[key] == nil then
-		View.instanceMap[key] = View.new(key)
+		return View.new(key)
+	else
+		return View.instanceMap[key]		
 	end
-	return View.instanceMap[key]
 end
 --[[
  * Register an Observer to be notified of Notifications with a given name
@@ -108,13 +109,7 @@ end
 function View:notifyObservers(notification)
 	if self.observerMap[notification:getName()] ~= nil then
 		local observers_ref = self.observerMap[notification:getName()]
-		local observers = {}
-		local observer
 		for _, o in pairs(observers_ref) do
-			table.insert(observers, o)
-		end
-
-		for _, o in pairs(observers) do
 			o:notifyObserver(notification)
 		end
 	end
@@ -133,7 +128,7 @@ end
  	local observers = self.observerMap[notificationName]
  	for _, o in pairs(observers) do
  		if o:compareNotifyContext(notifyContext) then
- 			table.remove(o, _)
+ 			table.remove(observers, _)
  			break
  		end
  	end

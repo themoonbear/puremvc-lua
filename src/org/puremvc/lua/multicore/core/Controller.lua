@@ -101,9 +101,10 @@ function Controller.getInstance(key)
 		return nil
 	end
 	if(nil == Controller.instanceMap[key]) then
-		Controller.instanceMap[key] = Controller.new(key)
+		return Controller.new(key)
+	else
+		return Controller.instanceMap[key]
 	end
-	return Controller.instanceMap[key]
 end
 --[[
  * If a SimpleCommand or MacroCommand has previously been registered to handle

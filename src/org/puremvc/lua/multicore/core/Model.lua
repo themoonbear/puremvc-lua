@@ -71,9 +71,10 @@ function Model.getInstance(key)
 		return nil
 	end
 	if Model.instanceMap[key] == nil then
-		Model.instanceMap[key] = Model.new(key)
+		return Model.new(key)
+	else
+		return Model.instanceMap[key]		
 	end
-	return Model.instanceMap[key]
 end
 --[[
  * Register a Proxy with the Model
