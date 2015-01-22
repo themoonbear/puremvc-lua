@@ -22,6 +22,7 @@ local Notifier = import('..observer.Notifier')
 local SimpleCommand = class('SimpleCommand', Notifier)
 
 function SimpleCommand:ctor()
+    SimpleCommand.super.ctor(self)  
 end
 --[[
  * Fulfill the use-case initiated by the given Notification
