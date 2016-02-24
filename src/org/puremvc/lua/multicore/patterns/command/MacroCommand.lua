@@ -85,7 +85,7 @@ end
 function MacroCommand:execute(note)
     -- SIC- TODO optimize
     while(#self.subCommands > 0) do
-        local ref= table.remove(self.subCommands)
+        local ref= table.remove(self.subCommands, 1)
         local cmd= ref.new()
         cmd:initializeNotifier(self.multitonKey)
         cmd:execute(note)
