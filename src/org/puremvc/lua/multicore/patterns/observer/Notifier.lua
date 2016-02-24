@@ -58,9 +58,9 @@ end
  * @return {void}
 ]]
 function Notifier:sendNotification(notificationName, body, type)
-	local facade = self.getFacade()
+	local facade = self:getFacade()
 	if facade ~= nil then
-		facade.sendNotification(notificationName, body, type)
+		facade:sendNotification(notificationName, body, type)
 	end
 end
 --[[
