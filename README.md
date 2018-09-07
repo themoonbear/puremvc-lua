@@ -3,6 +3,8 @@ PureMVC is a lightweight framework for creating applications based upon the clas
 
 Unit Tests are included in this repository.
 
+![](https://github.com/themoonbear/puremvc-lua/blob/master/framework.jpg)
+
 ## Status
 Production - [Version 1.0.0]()
 
